@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Library - Search Books</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif;">
+
+<!-- Header -->
+<header style="background-color:#5B1E4A; color:white; text-align:center; padding:15px;">
+    <h1 style="margin:5px;">Online Library</h1>
+    <p style="margin:5px;">Your Gateway to Knowledge</p>
+</header>
+
+<!-- Navbar -->
+<nav style="background-color:#7A2E63; padding:10px; text-align:center;">
+    <a href="../index.html"
+       style="color:white; text-decoration:none; margin:20px;">
+        Home
+    </a>
+    <a href="search.html"
+       style="color:white; text-decoration:none; margin:20px; font-weight:bold;">
+        Search
+    </a>
+    <a href="view_books.html"
+       style="color:white; text-decoration:none; margin:20px;">
+        View Books
+    </a>
+    <a href="borrowed_books.html"
+       style="color:white; text-decoration:none; margin:20px;">
+        Borrowed Books
+    </a>
+    <a href="../login.html"
+       style="color:white; text-decoration:none; margin:20px;">
+        Logout
+    </a>
+</nav>
+
+<!-- Page Title -->
+<div style="text-align:center; margin-top:40px;">
+    <h2 style="color:#5B1E4A; margin-top:40px;">Search for Books</h2>
+    <p>Find books by title, author, or category</p>
+</div>
+
+<!-- Search Form -->
+<section style="display:flex; justify-content:center; margin-top:30px;">
+    <form action="search_results.html" method="get" style="
+        background:white;
+        padding:30px;
+        width:450px;
+        border-radius:10px;
+        box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+    ">
+
+        <label>Search by Title</label>
+        <input type="text" name="title" placeholder="Enter book title" style="width:100%; padding:8px; box-sizing:border-box;"><br><br>
+
+        <label>Search by Author</label>
+        <input type="text" name="author" placeholder="Enter author name" style="width:100%; padding:8px; box-sizing:border-box;"><br><br>
+
+        <label>Search by Category</label>
+        <select name="category" style="width:100%; padding:8px; box-sizing:border-box;">
+            <option value="">-- Select a Category --</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
+            <option value="technology">Technology</option>
+            <option value="philosophy">Philosophy</option>
+            <option value="arts">Arts</option>
+            <option value="biography">Biography</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <button type="submit" style="
+            width:100%;
+            padding:10px;
+            background-color:#7A2E63;
+            color:white;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+        ">
+            Search
+        </button>
+
+        <br><br>
+        <p style="text-align:center;">
+            Want to browse all books?
+            <a href="view_books.html" style="color:#7A2E63; text-decoration:none;">
+                View All Books
+            </a>
+        </p>
+
+    </form>
+</section>
+
+<!-- Search Results Placeholder -->
+<section style="display:flex; justify-content:center; margin-top:40px; padding:0 20px;">
+    <div style="
+        background:white;
+        padding:30px;
+        width:600px;
+        border-radius:10px;
+        box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+    ">
+        <h3 style="color:#5B1E4A; margin-top:0;">Search Results</h3>
+
+        <!-- Table for displaying results -->
+        <table border="1" style="width:100%; border-collapse:collapse; text-align:left;">
+            <thead style="background-color:#7A2E63; color:white;">
+                <tr>
+                    <th style="padding:10px;">ID</th>
+                    <th style="padding:10px;">Book Title</th>
+                    <th style="padding:10px;">Author</th>
+                    <th style="padding:10px;">Category</th>
+                    <th style="padding:10px;">Status</th>
+                    <th style="padding:10px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Results will be populated dynamically -->
+                <tr>
+                    <td style="padding:10px;" colspan="6">
+                        No results yet. Use the search form above to find books.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer style="
+    background-color:#5B1E4A;
+    color:white;
+    text-align:center;
+    margin-top:150px;
+    padding:1px;
+">
+    <p>© 2026 Online Library | IS231 - Web Technology</p>
+</footer>
+
+</body>
+</html>
