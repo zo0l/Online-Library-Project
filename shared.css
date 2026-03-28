@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #5B1E4A;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+header p {
+    margin: 5px;
+}
+
+nav {
+    background-color: #7A2E63;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+}
+
+footer {
+    background-color: #5B1E4A;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+
+.nav-active {
+    font-weight: bold;
+}
+
+/* index.html */
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da');
+    background-size: cover;
+    background-position: center;
+    height: 75.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 25, 66, 0.6);
+}
+
+.hero h2 {
+    font-size: 40px;
+    position: relative;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    position: relative;
+}
