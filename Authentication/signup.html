@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Online Library - Sign Up</title>
+<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+  <header>
+     <h1>Online Library</h1>
+     <p>Your Gateway to Knowledge</p>
+ </header>
+
+    <nav>
+
+     <a href="../index.html">
+       Home
+    </a>
+
+    <a href="login.html">
+       Login
+    </a>
+
+    <a href="signup.html" class="nav-active">
+       Sign Up
+    </a>
+
+    <a href="admin_login.html">
+       Admin Login
+    </a>
+
+</nav>
+<div class="signup-intro">
+
+ <h2>Create Your Account</h2>
+ <p>Fill in the form below to register in the Online Library</p>
+
+</div>
+<div class="signup-form-wrapper">
+
+ <form action="login.html" class="signup-form">
+
+ <label>Username</label>
+
+ <input type="text" name="username" class="form-input"><br><br>
+ <label>Email</label>
+ <input type="email" name="email" class="form-input"><br><br>
+
+ <label>Password</label>
+ <input type="password" name="password" class="form-input"><br><br>
+
+ <label>Confirm Password</label>
+ <input type="password" name="confirm_password" class="form-input"><br><br>
+
+
+ <label>Account Type</label><br>
+ <input type="radio" name="role" value="admin"> Admin
+ <br>
+
+ <input type="radio" name="role" value="user"> User
+
+ <br><br>
+
+ <button type="submit" class="btn-submit">
+
+ Create Account
+
+ </button>
+ <br><br>
+
+ <p class="text-center">
+    Already have an account?
+
+ </p>
+ <a href="login.html" class="form-link">
+    Login here
+ </a>
+ </form>
+
+ </div>
+<script src="js/signup.js"></script>
+ </body>
+<footer class="footer-signup">
+    <p>© 2026 Online Library | IS231 - Web Technology</p>
+</footer>
+
+
+</html>
