@@ -1,5 +1,3 @@
-/* admin-forms.css */
-
 .form-section {
     background-color: #ddb6d9;
     flex: 1;
@@ -58,7 +56,6 @@
     padding: 12px;
     border-radius: 5px;
     font-size: 14px;
-    /* ضفت لك border خفيف عشان الشكل يكون أفضل */
     border: 1px solid #ccc;
 }
 
