@@ -1,0 +1,21 @@
+body {
+  background-color: #F4F4F4;
+}
+
+nav a {
+  font-weight: bold;
+}
+
+#address {
+  text-align: center ;
+  margin: 40px;
+}
+
+#address h2 {
+  color: #5B1E4A;
+  margin-top: 40px;
+}
+
+footer {
+  margin-top:150px;
+}
