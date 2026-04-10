@@ -3,72 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Online Library - Edit Book</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="admin-forms.css">
 </head>
-<body style="margin:0; padding:0; font-family:Arial, sans-serif;">
-    <header style="background-color:#5B1E4A; color: white;text-align: center;padding: 15px;">
-        <h1 style="margin: 5px;">Online Library -Admin</h1>
-        <p style="margin:5px;">Editing Current Book</p>
+<body>
+    <header>
+        <h1>Online Library - Admin</h1>
+        <p>Editing Current Book</p>
     </header>
 
-    <nav style="background-color:#7A2E63; padding:10px; text-align:center;">
-
-        <a href="../index.html"
-           style="color:white; text-decoration:none; margin: 20px;">
-            Home
-        </a>
-
-
-        <a href="admin-books.html"
-           style="color:white;
-       text-decoration:none;
-       margin:20px;">
-            List of Books
-        </a>
-
-        <a href="admin-dashboard.html"
-           style="color:white;
-       text-decoration:none;
-       margin:20px;">
-            Dashboard
-        </a>
-
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="admin-books.html">List of Books</a>
+        <a href="admin-dashboard.html">Dashboard</a>
     </nav>
 
-    <section style="
-        background-color: #ddb6d9;
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    ">
-        <div style="background-color: white; padding: 40px; border-radius: 8px; width: 100%; max-width: 800px; color: #5B1E4A;">
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Edit the fields</h2>
 
-            <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px;">Edit the fields</h2>
+            <form method="post" class="admin-form">
 
-            <form method="post" style="display: flex; flex-direction: column;">
-
-                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-
-                    <div style="width: 48%; display: flex; flex-direction: column;">
-                        <label for="book_name" style="margin-bottom: 8px; font-weight: bold;">Title</label>
-                        <input type="text" id="book_name" name="book_name" required style="padding: 12px; border-radius: 5px; font-size: 14px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book_name">Title</label>
+                        <input type="text" id="book_name" name="book_name" required>
                     </div>
-                    <div style="width: 48%; display: flex; flex-direction: column;">
-                        <label for="book_author" style="margin-bottom: 8px; font-weight: bold;">Author</label>
-                        <input type="text" id="book_author" name="book_author" required style="padding: 12px; border-radius: 5px; font-size: 14px;">
+                    <div class="form-group">
+                        <label for="book_author">Author</label>
+                        <input type="text" id="book_author" name="book_author" required>
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-
-                    <div style="width: 48%; display: flex; flex-direction: column;">
-                        <label for="ISBN" style="margin-bottom: 8px; font-weight: bold;">ISBN</label>
-                        <input type="text" id="ISBN" name="ISBN" required style="padding: 12px; border-radius: 5px; font-size: 14px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ISBN">ISBN</label>
+                        <input type="text" id="ISBN" name="ISBN" required>
                     </div>
-                    <div style="width: 48%; display: flex; flex-direction: column;">
-                        <label for="book_category" style="margin-bottom: 8px; font-weight: bold;">Category</label>
-                        <select id="book_category" name="book_category" required style="padding: 12px; border-radius: 5px; font-size: 14px; background-color: white;">
+                    <div class="form-group">
+                        <label for="book_category">Category</label>
+                        <select id="book_category" name="book_category" required>
                             <option value="" disabled selected>Select a category...</option>
                             <option value="technology">Technology & Programming</option>
                             <option value="science">Science</option>
@@ -77,28 +51,20 @@
                             <option value="comic">Comic Books</option>
                         </select>
                     </div>
-
                 </div>
 
-                <div style="display: flex; flex-direction: column; margin-bottom: 30px;">
-                    <label for="book_description" style="margin-bottom: 8px; font-weight: bold;">Description</label>
-                    <textarea id="book_description" name="book_description" rows="5" required style="padding: 12px; border-radius: 5px; font-size: 14px; resize: vertical;"></textarea>
+                <div class="form-group-full">
+                    <label for="book_description">Description</label>
+                    <textarea id="book_description" name="book_description" rows="5" required></textarea>
                 </div>
 
-                <button type="submit" style="background-color: #5B1E4A; color: white; padding: 15px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%;">
-                    Edit Book
-                </button>
+                <button type="submit" class="submit-btn">Edit Book</button>
 
             </form>
         </div>
     </section>
 
-    <footer style="
-    background-color:#5B1E4A;
-    color:white;
-    text-align:center;
-    padding:1px;
-">
+    <footer>
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
