@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Online Library - Login</title>
+<title>Online Library - Admin Login</title>
 <link rel="stylesheet" href="../shared.css">
 <link rel="stylesheet" href="css/auth.css">
 </head>
@@ -20,28 +20,28 @@
        Home
     </a>
 
-    <a href="login.html" class="nav-active">
+    <a href="login.html">
        Login
     </a>
 
     <a href="signup.html">
        Sign Up
     </a>
-    <a href="admin_login.html">
+    <a href="admin_login.html" class="nav-active">
        Admin Login
     </a>
 </nav>
 
 <div class="login-intro">
 
-<h2>Login to Your Account</h2>
+<h2>Admin Login</h2>
 
-<p>Enter your username and password to continue</p>
+<p>Enter your admin username and password to continue</p>
 
 </div>
 <section class="login-form-section">
 
-<form action="user pages/user_dashboard.html" class="login-form">
+<form action="" class="login-form">
 
 <label>Username</label>
 <input type="text" name="username" required class="form-input"><br><br>
@@ -56,9 +56,9 @@ Login
 <br><br>
 
 <p class="text-center">
-Don't have an account?
-<a href="signup.html" class="form-link">
-Sign Up
+Not an admin?
+<a href="login.html" class="form-link">
+User Login
 </a>
 </p>
 
@@ -69,6 +69,6 @@ Sign Up
 
     <p>© 2026 Online Library | IS231 - Web Technology</p>
 </footer>
-<script src="js/login.js"></script>
+<script src="js/admin_login.js"></script>
 </body>
 </html>
