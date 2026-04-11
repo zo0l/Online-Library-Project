@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Library - My Borrowed Books</title>
-    <link rel="stylesheet" href="../shared.css">
-    <link rel="stylesheet" href="userStyle.css">
-    <script src="userScript.js"></script>
-
+    <link rel="stylesheet" href="borrowed_details.css">
 </head>
 <body>
     <header>
@@ -17,38 +15,44 @@
     <nav>
         <a href="user_dashboard.html">Dashboard</a>
         <a href="search.html">Search Books</a>
-        <a href="borrowed_books.html" style="font-weight: bold;">My Borrowed Books</a>
-        <a href="../Authentication/login.html">Logout</a>
+        <a href="borrowed_books.html" class="active">My Borrowed Books</a>
+        <a href="../index.html">Logout</a>
     </nav>
 
-    <section>
-        <div>
-            <h3>Books You Have Borrowed</h3>
+    <main class="borrowed-container">
+        <div class="borrowed-card">
+            <h2>Books You Have Borrowed</h2>
             
-            <table >
-                <thead>
-                    <tr>
-                        <th>Book Title</th>
-                        <th>Author</th>
-                        <th>Borrowed Date</th>
-                        <th>Return Deadline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td>Book name</td>
-                        <td>Author</td>
-                        <td>YYYY-MM-DD</td>
-                        <td>YYYY-MM-DD</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="borrowed-table" id="borrowedTable">
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Borrowed Date</th>
+                            <th>Return Deadline</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="borrowedTableBody">
+                        <tr class="loading">
+                            <td colspan="6" style="text-align: center;">Loading your borrowed books...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="borrowed-note">
+                <p><strong>Note:</strong> Please return books by the deadline to avoid late fees. Late fee: $0.50 per day.</p>
+            </div>
         </div>
-    </section>
+    </main>
 
     <footer>
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
+
+    <script src="js/borrowed-books.js"></script>
 </body>
 </html>
