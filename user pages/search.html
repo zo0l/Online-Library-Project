@@ -1,47 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Online Library - Search Books</title>
-        <link rel="stylesheet" href="../shared.css">
-        <link rel="stylesheet" href="userStyle.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Library - Search Books</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="userStyle.css">
+</head>
+<body>
 
-        <header>
-            <h1>Online Library</h1>
-            <p>Your Gateway to Knowledge</p>
-        </header>
+    <header>
+        <h1>Online Library</h1>
+        <p>Your Gateway to Knowledge</p>
+    </header>
 
-        <nav>
-            <a href="user_dashboard.html">Dashboard</a>
-            <a href="search.html">Search Books</a>
-            <a href="borrowed_books.html">My Borrowed Books</a>
-            <a href="../Authentication/login.html">Logout</a>
-        </nav>
+    <nav>
+        <a href="user_dashboard.html">Dashboard</a>
+        <a href="search.html" style="">Search Books</a>
+        <a href="borrowed_books.html">My Borrowed Books</a>
+        <a href="../login.html">Logout</a>
+    </nav>
 
-        <div id="address">
-            <h2>Search for Books</h2>
-            <p>Find books by title, author, or category</p>
-        </div>
+    <div id="address">
+        <h2>Search for Books</h2>
+        <p>Find books by title, author, or category</p>
+    </div>
 
-        <section style="display:flex; justify-content:center; margin-top:30px;">
-            <form action="search_results.html" method="get" style="
-            background:white;
-            padding:30px;
-            width:450px;
-            border-radius:10px;
-            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
-            ">
+    <section>
+        <form action="search_results.html" method="get" id="search">
 
-            <label>Search by Title</label>
-            <input type="text" name="title" placeholder="Enter book title" style="width:100%; padding:8px; box-sizing:border-box;"><br><br>
+        <label>Search by Title</label>
+        <input type="text" name="title" placeholder="Enter book title"><br><br>
 
             <label>Search by Author</label>
-            <input type="text" name="author" placeholder="Enter author name" style="width:100%; padding:8px; box-sizing:border-box;"><br><br>
+            <input type="text" name="author" placeholder="Enter author name"><br><br>
 
             <label>Search by Category</label>
-            <select name="category" style="width:100%; padding:8px; box-sizing:border-box;">
+            <select name="category">
                 <option value="">-- Select a Category --</option>
                 <option value="fiction">Fiction</option>
                 <option value="non-fiction">Non-Fiction</option>
@@ -54,59 +48,43 @@
                 <option value="other">Other</option>
             </select><br><br>
 
-            <button type="submit" style="
-                width:100%;
-                padding:10px;
-                background-color:#7A2E63;
-                color:white;
-                border:none;
-                cursor:pointer;
-                border-radius:5px;
-            ">
-                Search
-            </button>
+            <button type="submit">Search</button>
 
             <br><br>
             <p style="text-align:center;">
                 Want to browse all books?
-                <a href="view_books.html" style="color:#7A2E63; text-decoration:none;">
-                    View All Books
-                </a>
+                <a href="view_books.html">View All Books</a>
             </p>
 
         </form>
     </section>
 
-    <section style="display:flex; justify-content:center; margin-top:40px; padding:0 20px;">
-        <div style="
-            background:white;
-            padding:30px;
-            width:600px;
-            border-radius:10px;
-            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
-        ">
-            <h3 style="color:#5B1E4A; margin-top:0;">Search Results</h3>
+    <section>
+        <div>
+            <h3 >Search Results</h3>
 
-            <table border="1" style="width:100%; border-collapse:collapse; text-align:left;">
-                <thead style="background-color:#7A2E63; color:white;">
+            <table>
+                <thead>
                      <tr>
-                        <th style="padding:10px;">ID</th>
-                        <th style="padding:10px;">Book Title</th>
-                        <th style="padding:10px;">Author</th>
-                        <th style="padding:10px;">Category</th>
-                        <th style="padding:10px;">Status</th>
-                        <th style="padding:10px;">Action</th>
+                        <th>ID</th>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr>
-                        <td style="padding:10px;">1</td>
-                        <td style="padding:10px;">Clean Code</td>
-                        <td style="padding:10px;">Robert Martin</td>
-                        <td style="padding:10px;">Programming</td>
-                        <td style="padding:10px;">Available</td>
-                        <td style="padding:10px;"><a href="book_details.html"><button style="background-color:#7A2E63; color:white; border:none; padding:6px 12px; cursor:pointer; border-radius:4px;">View Details</button></a></td>
+                        <td>1</td>
+                        <td>Clean Code</td>
+                        <td>Robert Martin</td>
+                        <td>Programming</td>
+                        <td>Available</td>
+                        <td><a href="book_details.html">
+                            <button>View Details</button>
+                            </a></td>
                     </tr>
                 </tbody>
             </table>
