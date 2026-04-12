@@ -7,66 +7,67 @@
     <link rel="stylesheet" href="admin-forms.css">
 </head>
 <body>
-    <header>
-        <h1>Online Library - Admin</h1>
-        <p>Editing Current Book</p>
-    </header>
+<header>
+    <h1>Online Library - Admin</h1>
+    <p>Editing Current Book</p>
+</header>
 
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="admin-books.html">List of Books</a>
-        <a href="admin-dashboard.html">Dashboard</a>
-    </nav>
+<nav>
+    <a href="../index.html">Home</a>
+    <a href="admin-books.html">List of Books</a>
+    <a href="admin-dashboard.html">Dashboard</a>
+</nav>
 
-    <section class="form-section">
-        <div class="form-container">
-            <h2>Edit the fields</h2>
+<section class="form-section">
+    <div class="form-container">
+        <h2>Edit the fields</h2>
 
-            <form method="post" class="admin-form">
+        <form method="post" class="admin-form">
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="book_name">Title</label>
-                        <input type="text" id="book_name" name="book_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="book_author">Author</label>
-                        <input type="text" id="book_author" name="book_author" required>
-                    </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="book_name">Title</label>
+                    <input type="text" id="book_name" name="book_name" required>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="ISBN">ISBN</label>
-                        <input type="text" id="ISBN" name="ISBN" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="book_category">Category</label>
-                        <select id="book_category" name="book_category" required>
-                            <option value="" disabled selected>Select a category...</option>
-                            <option value="technology">Technology & Programming</option>
-                            <option value="science">Science</option>
-                            <option value="literature">Literature & Fiction</option>
-                            <option value="history">History</option>
-                            <option value="comic">Comic Books</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="book_author">Author</label>
+                    <input type="text" id="book_author" name="book_author" required>
                 </div>
+            </div>
 
-                <div class="form-group-full">
-                    <label for="book_description">Description</label>
-                    <textarea id="book_description" name="book_description" rows="5" required></textarea>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ISBN">ISBN</label>
+                    <input type="text" id="ISBN" name="ISBN" required>
                 </div>
+                <div class="form-group">
+                    <label for="book_category">Category</label>
+                    <select id="book_category" name="book_category" required>
+                        <option value="" disabled selected>Select a category...</option>
+                        <option value="technology">Technology & Programming</option>
+                        <option value="science">Science</option>
+                        <option value="literature">Literature & Fiction</option>
+                        <option value="history">History</option>
+                        <option value="comic">Comic Books</option>
+                    </select>
+                </div>
+            </div>
 
-                <button type="submit" class="submit-btn">Edit Book</button>
+            <div class="form-group-full">
+                <label for="book_description">Description</label>
+                <textarea id="book_description" name="book_description" rows="5" required></textarea>
+            </div>
 
-            </form>
-        </div>
-    </section>
+            <button type="submit" class="submit-btn">Edit Book</button>
 
-    <footer>
-        <p>© 2026 Online Library | IS231 - Web Technology</p>
-    </footer>
+        </form>
+    </div>
+</section>
 
+<footer>
+    <p>© 2026 Online Library | IS231 - Web Technology</p>
+</footer>
+<script src="../JS_Files/dbase.js"></script>
+<script src="../JS_Files/admin.js"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
     </div>
 
     <section>
-        <form action="search_results.html" method="get" id="search">
+        <form method="get" id="search">
 
         <label>Search by Title</label>
         <input type="text" name="title" placeholder="Enter book title"><br><br>
@@ -39,24 +39,17 @@
             <label>Search by Category</label>
             <select name="category">
                 <option value="">-- Select a Category --</option>
-                <option value="fiction">Fiction</option>
-                <option value="non-fiction">Non-Fiction</option>
+                <option value="technology">Technology & Programming</option>
                 <option value="science">Science</option>
+                <option value="literature">Literature & Fiction</option>
                 <option value="history">History</option>
-                <option value="technology">Technology</option>
-                <option value="philosophy">Philosophy</option>
-                <option value="arts">Arts</option>
-                <option value="biography">Biography</option>
-                <option value="other">Other</option>
+                <option value="comic">Comic Books</option>
             </select><br><br>
 
             <button type="submit">Search</button>
 
             <br><br>
-            <p style="text-align:center;">
-                Want to browse all books?
-                <a href="view_books.html">View All Books</a>
-            </p>
+
 
         </form>
     </section>
@@ -98,5 +91,7 @@
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
+        <script src="../JS_Files/dbase.js"></script>
+        <script src="../JS_Files/user.js"></script>
     </body>
 </html>

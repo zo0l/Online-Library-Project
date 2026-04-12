@@ -257,12 +257,10 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <a href="admin_dashboard.html">Dashboard</a>
-            <a href="admin_books.html">All Books</a>
-            <a href="add_book.html">Add Book</a>
-            <a href="#">Users</a>
-            <a href="#">Borrow Requests</a>
-            <a href="index.html">Logout</a>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-books.html">All Books</a>
+            <a href="add-book.html">Add Book</a>
+            <a href="../index.html">Logout</a>
         </div>
 
 
@@ -273,7 +271,7 @@
             <!-- Page title and Add button -->
             <div class="top-bar">
                 <h2>All Books</h2>
-                <a href="add_book.html" class="btn-add">+ Add New Book</a>
+                <a href="add-book.html" class="btn-add">+ Add New Book</a>
             </div>
 
 
@@ -301,172 +299,9 @@
 
             <!-- Books table -->
             <table id="booksTable">
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Genre</th>
-                    <th>Year</th>
-                    <th>Copies</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>The Great Gatsby</td>
-                    <td>F. Scott Fitzgerald</td>
-                    <td>Fiction</td>
-                    <td>1925</td>
-                    <td>3</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>A Brief History of Time</td>
-                    <td>Stephen Hawking</td>
-                    <td>Science</td>
-                    <td>1988</td>
-                    <td>2</td>
-                    <td class="borrowed">Borrowed</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Sapiens</td>
-                    <td>Yuval Noah Harari</td>
-                    <td>History</td>
-                    <td>2011</td>
-                    <td>5</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Clean Code</td>
-                    <td>Robert C. Martin</td>
-                    <td>Technology</td>
-                    <td>2008</td>
-                    <td>4</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>1984</td>
-                    <td>George Orwell</td>
-                    <td>Fiction</td>
-                    <td>1949</td>
-                    <td>6</td>
-                    <td class="borrowed">Borrowed</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>The Selfish Gene</td>
-                    <td>Richard Dawkins</td>
-                    <td>Science</td>
-                    <td>1976</td>
-                    <td>2</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Thinking Fast and Slow</td>
-                    <td>Daniel Kahneman</td>
-                    <td>Philosophy</td>
-                    <td>2011</td>
-                    <td>3</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>The Art of War</td>
-                    <td>Sun Tzu</td>
-                    <td>Philosophy</td>
-                    <td>500 BC</td>
-                    <td>7</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>To Kill a Mockingbird</td>
-                    <td>Harper Lee</td>
-                    <td>Fiction</td>
-                    <td>1960</td>
-                    <td>4</td>
-                    <td class="unavailable">Unavailable</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>The Pragmatic Programmer</td>
-                    <td>Hunt and Thomas</td>
-                    <td>Technology</td>
-                    <td>1999</td>
-                    <td>2</td>
-                    <td class="borrowed">Borrowed</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>Cosmos</td>
-                    <td>Carl Sagan</td>
-                    <td>Science</td>
-                    <td>1980</td>
-                    <td>3</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Meditations</td>
-                    <td>Marcus Aurelius</td>
-                    <td>Philosophy</td>
-                    <td>180 AD</td>
-                    <td>5</td>
-                    <td class="available">Available</td>
-                    <td>
-                        <a href="edit-book.html" class="btn-edit">Edit</a>
-                        <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
-                    </td>
-                </tr>
+                <tbody>
+
+                </tbody>
             </table>
 
 
@@ -538,6 +373,7 @@
 
     </script>
 
-
+    <script src="../JS_Files/dbase.js"></script>
+    <script src="../JS_Files/admin.js"></script>
 </body>
 </html>
