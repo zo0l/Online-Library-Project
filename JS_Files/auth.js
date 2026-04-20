@@ -50,7 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
             saveUsers(users);
 
             alert("Registration successful! Please login.");
-            window.location.href = "login.html";
+
+            if (role === "admin") {
+    window.location.href = "admin_login.html";
+            } else {
+   window.location.href = "login.html";
+}
         });
     }
 
