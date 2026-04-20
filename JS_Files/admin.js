@@ -76,9 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // -----------------------------------------
-    // 4. حذف كتاب (Delete Book)
-    // -----------------------------------------
+
     window.deleteBook = function (bookId) {
         if (confirm("Are you sure you want to delete this book?")) {
             let books = getBooks();

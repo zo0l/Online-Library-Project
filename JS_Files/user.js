@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     let currentUser = getCurrentUser();
-
-    if (!currentUser) {
-        alert("Please login to access this page!");
+    if (!currentUser || currentUser.role === "admin") {
+        alert("Access Denied! Please login as an user.");
         window.location.href = "../Authentication/login.html";
         return;
     }
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (usernameInput) usernameInput.value = currentUser.username;
         if (emailInput) emailInput.value = currentUser.email;
     }
-
 
 
     const searchForm = document.getElementById("search");
@@ -60,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         displaySearchResults(allBooks);
 
         if (searchForm) {
-            searchForm.addEventListener("submit", function(e) {
+            searchForm.addEventListener("submit", function (e) {
                 e.preventDefault();
 
                 let searchTitle = document.querySelector("input[name='title']").value.toLowerCase().trim();
@@ -79,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
-
 
 
     if (window.location.pathname.includes("book_details.html")) {
@@ -112,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            borrowBtn.addEventListener("click", function() {
+            borrowBtn.addEventListener("click", function () {
                 let currentUser = getCurrentUser();
                 currentBook.status = "Borrowed";
                 localStorage.setItem("books", JSON.stringify(allBooks));
@@ -146,8 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".details-container").innerHTML = "<h2>Book not found!</h2><a href='search.html'>Back to Search</a>";
         }
     }
-
-
 
 
     if (window.location.pathname.includes("borrowed_books.html")) {
@@ -190,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function attachReturnEvents() {
             const returnBtns = document.querySelectorAll(".return-btn");
             returnBtns.forEach(btn => {
-                btn.addEventListener("click", function() {
+                btn.addEventListener("click", function () {
                     const loanId = this.getAttribute("data-id");
                     const bookId = this.getAttribute("data-bookid");
 
@@ -216,14 +211,13 @@ document.addEventListener("DOMContentLoaded", function () {
         displayBorrowedBooks();
     }
 
-
     const logoutLinks = document.querySelectorAll("a");
 
     logoutLinks.forEach(link => {
         let linkText = link.innerText.toLowerCase().trim();
         if (linkText === "logout" || linkText === "log out") {
 
-            link.addEventListener("click", function(e) {
+            link.addEventListener("click", function (e) {
                 e.preventDefault();
                 localStorage.removeItem("currentUser");
                 window.location.href = this.href;

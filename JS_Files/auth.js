@@ -93,16 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    document.querySelectorAll("a").forEach(link => {
-        if (link.innerText.trim().toLowerCase() === "logout") {
-            link.addEventListener("click", function () {
-                logout();
-            });
-        }
-    });
-
-
-
     const logoutLinks = document.querySelectorAll("a");
 
     logoutLinks.forEach(link => {
