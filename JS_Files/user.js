@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     bookId: currentBook.id,
                     bookTitle: currentBook.title,
                     borrowDate: new Date().toLocaleDateString(),
-                    returnDeadline: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString() // بعد أسبوع
+                    returnDeadline: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()
                 };
 
                 borrowedBooks.push(newLoan);
