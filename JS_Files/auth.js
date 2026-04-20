@@ -40,7 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return alert("Username or Email already exists!");
             }
 
-            let newUser = { username, email, password, role };
+            let newUser = {
+            username: username,
+            email: email,
+            password: password,
+            role: role
+      };
             users.push(newUser);
             saveUsers(users);
 
