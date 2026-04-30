@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Library - Search Books</title>
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+    <link rel="stylesheet" href="{% static 'css/userStyle.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Online Library</h1>
+        <p>Your Gateway to Knowledge</p>
+    </header>
+
+    <nav>
+        <a href="{% url 'user_dashboard' %}">Dashboard</a>
+        <a href="{% url 'search_books' %}" style="">Search Books</a>
+        <a href="{% url 'borrowed_books' %}">My Borrowed Books</a>
+        <a href="{% url 'index' %}">Logout</a>
+    </nav>
+
+    <div id="address">
+        <h2>Search for Books</h2>
+        <p>Find books by title, author, or category</p>
+    </div>
+
+    <section>
+        <form method="get" id="search">
+
+        <label>Search by Title</label>
+        <input type="text" name="title" placeholder="Enter book title"><br><br>
+
+            <label>Search by Author</label>
+            <input type="text" name="author" placeholder="Enter author name"><br><br>
+
+            <label>Search by Category</label>
+            <select name="category">
+                <option value="">-- Select a Category --</option>
+                <option value="technology">Technology & Programming</option>
+                <option value="science">Science</option>
+                <option value="literature">Literature & Fiction</option>
+                <option value="history">History</option>
+                <option value="comic">Comic Books</option>
+            </select><br><br>
+
+            <button type="submit">Search</button>
+
+            <br><br>
+
+
+        </form>
+    </section>
+
+    <section>
+        <div>
+            <h3 >Search Results</h3>
+
+            <table>
+                <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Clean Code</td>
+                        <td>Robert Martin</td>
+                        <td>Programming</td>
+                        <td>Available</td>
+                        <td><a href="{% url 'book_details' %}">
+                            <button>View Details</button>
+                            </a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Online Library | IS231 - Web Technology</p>
+    </footer>
+
+        <script src="{% static 'js/dbase.js' %}"></script>
+        <script src="{% static 'js/user.js' %}"></script>
+    </body>
+</html>

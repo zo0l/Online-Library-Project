@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Library - User Dashboard</title>
+<link rel="stylesheet" href="{% static 'css/shared.css' %}">
+<link rel="stylesheet" href="{% static 'css/userStyle.css' %}">
+
+</head>
+<body>
+
+<header>
+    <h1>Online Library</h1>
+    <p>Your Gateway to Knowledge</p>
+</header>
+
+<nav>
+    <a href="{% url 'user_dashboard' %}" style="font-weight: bold;">Dashboard</a>
+    <a href="{% url 'search_books' %}">Search Books</a>
+    <a href="{% url 'borrowed_books' %}">My Borrowed Books</a>
+    <a href="{% url 'login' %}">Logout</a>
+</nav>
+
+<div id="address">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>Browse books, search by title or author, and manage your borrowed books.</p>
+</div>
+
+<section>
+
+    <div>
+        <h3>Search Books</h3>
+        <p class="dashboard">Find books by title, author, or category.</p>
+        <a href="{% url 'search_books' %}">Go to Search</a>
+    </div>
+
+    <div>
+        <h3>View All Books</h3>
+        <p class="dashboard">Browse the full library collection.</p>
+        <a href="{% url 'search_books' %}">View Books</a>
+    </div>
+
+    <div>
+        <h3>Borrowed Books</h3>
+        <p class="dashboard">View and manage your currently borrowed books.</p>
+        <a href="{% url 'borrowed_books' %}">My Borrowed</a>
+    </div>
+
+</section>
+
+<section>
+    <div>
+        <h3>My Account Info</h3>
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Your username" readonly><br><br>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Your email" readonly><br><br>
+
+        <label>Account Type</label>
+        <input type="text" name="account_type" placeholder="User" readonly><br>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Online Library | IS231 - Web Technology</p>
+</footer>
+
+    <script src="{% static 'js/dbase.js' %}"></script>
+    <script src="{% static 'js/user.js' %}"></script>
+</body>
+</html>

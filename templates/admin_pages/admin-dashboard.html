@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/admin-style.css' %}">
+</head>
+<body>
+
+<div class="header">
+    <h1>Online Library</h1>
+    <p>Your Gateway to Knowledge</p>
+</div>
+
+<div class="navbar">
+    <a href="{% url 'index' %}" style="color:white; text-decoration:none; margin: 20px;">Home</a>
+    <a href="{% url 'admin_books' %}" style="color:white; text-decoration:none; margin:20px;">List of Books</a>
+    <a href="{% url 'admin_dashboard' %}" style="color:white; text-decoration:none; margin:20px;">Dashboard</a>
+</div>
+
+<div class="page-wrapper">
+
+    <div class="sidebar">
+        <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+        <a href="{% url 'admin_books' %}">All Books</a>
+        <a href="{% url 'add_book' %}">Add Book</a>
+        <a href="{% url 'index' %}">Logout</a>
+    </div>
+
+    <div class="content">
+        <h2>Admin Dashboard</h2>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-number" id="totalBooksCount">0</div>
+                <div class="stat-label">Total Books</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="totalUsersCount">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="activeLoansCount">0</div>
+                <div class="stat-label">Active Loans</div>
+            </div>
+        </div>
+
+        <div class="two-columns">
+
+            <div class="column-left">
+                <table id="recentBooksTable">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="column-right">
+                <div class="section-title">Quick Actions</div>
+                <div class="quick-actions">
+                    <a href="{% url 'add_book' %}">Add Book</a>
+                    <a href="{% url 'admin_books' %}">All Books</a>
+                </div>
+
+                <div class="section-title">Recent Activity</div>
+                <div class="activity-box" id="recentActivityBox">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    &copy; 2026 Online Library | IS231 - Web Technology
+</div>
+
+<script src="{% static 'js/dbase.js' %}"></script>
+<script src="{% static 'js/admin.js' %}"></script>
+</body>
+</html>

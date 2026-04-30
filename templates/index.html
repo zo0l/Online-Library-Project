@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Library - Home</title>
+    <link rel="stylesheet" href="{% static 'css/shared.css' %}">
+</head>
+<body>
+<header>
+    <h1>Online Library</h1>
+    <p>Your Gateway to Knowledge</p>
+</header>
+
+<nav>
+
+    <a href="{% url 'index' %}" class="nav-active">
+        Home
+    </a>
+
+    <a href="{% url 'login' %}">
+        Login
+    </a>
+
+    <a href="{% url 'signup' %}">
+        Sign Up
+    </a>
+</nav>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <h2>
+            Welcome to the Online Library
+        </h2>
+
+        <p>
+            Explore, borrow, and enjoy thousands of books —
+            all from the comfort of your home.
+        </p>
+
+    </section>
+    <footer>
+        <p>© 2026 Online Library | IS231 - Web Technology</p>
+    </footer>
+    <script src="{% static 'js/dbase.js' %}"></script>
+</body>
+</html>
