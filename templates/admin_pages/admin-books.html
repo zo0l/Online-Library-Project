@@ -27,7 +27,7 @@
             <a href="{% url 'admin_dashboard' %}">Dashboard</a>
             <a href="{% url 'admin_books' %}">All Books</a>
             <a href="{% url 'add_book' %}">Add Book</a>
-            <a href="{% url 'index' %}">Logout</a>
+            <a href="{% url 'logout' %}">Logout</a>
         </div>
 
         <div class="content">
@@ -120,7 +120,6 @@
         }
     </script>
 
-    <script src="{% static 'js/dbase.js' %}"></script>
     <script src="{% static 'js/admin.js' %}"></script>
 </body>
 </html>

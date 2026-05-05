@@ -34,82 +34,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let role = roleInput.value;
 
-            let users = getUsers();
-            let userExists = users.some(u => u.username === username || u.email === email);
-            if (userExists) {
-                return alert("Username or Email already exists!");
-            }
+            let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
 
-            let newUser = {
+            let dataToSend = {
                 username: username,
                 email: email,
                 password: password,
                 role: role
             };
-            users.push(newUser);
-            saveUsers(users);
 
-            alert("Registration successful! Please login.");
-
-            if (role === "admin") {
-                window.location.href = "/admin-login/";
-            } else {
-                window.location.href = "/login/";
-            }
+            fetch("/api/signup/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.message);
+                if (result.success) {
+                    if (role === "admin") {
+                        window.location.href = "/admin-login/";
+                    } else {
+                        window.location.href = "/login/";
+                    }
+                }
+            });
         });
     }
 
-
-
     const loginForm = document.querySelector(".login-form");
     if (loginForm) {
-        loginForm.addEventListener("submit", function (e) {
+        loginForm.addEventListener("submit", function (e) { 
             e.preventDefault();
 
             let username = document.querySelector("input[name='username']").value.trim();
             let password = document.querySelector("input[name='password']").value.trim();
 
-            let users = getUsers();
-            let foundUser = users.find(u => u.username === username && u.password === password);
-
-            if (!foundUser) {
-                return alert("Invalid username or password");
+            if (username === "" || password === "") {
+                return alert("Please fill in all fields");
             }
 
-            let isPageAdminLogin = window.location.pathname.includes("admin-login");
-            if (isPageAdminLogin && foundUser.role !== "admin") {
-                return alert("Access denied. You are not an admin.");
-            }
-            if (!isPageAdminLogin && foundUser.role !== "user") {
-                return alert("Admins should login from the Admin Login page.");
-            }
+            let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+            let isAdminLogin = window.location.pathname.includes("admin-login");
 
-            setCurrentUser(foundUser);
-            alert("Login successful!");
+            let dataToSend = {
+                username: username,
+                password: password,
+                is_admin_login: isAdminLogin
+            };
 
-            if (foundUser.role === "admin") {
-                window.location.href = "/admin-dashboard/";
-            } else {
-                window.location.href = "/user-dashboard/";
-            }
+            fetch("/api/login/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert("Login successful");
+                    if (result.role === "admin") {
+                        window.location.href = "/admin-dashboard/";
+                    }else {
+                        window.location.href = "/user-dashboard/";
+                    }
+                } else {
+                    alert(result.message);
+                }
+            });
         });
     }
 
-
-
-    const logoutLinks = document.querySelectorAll("a");
-
-    logoutLinks.forEach(link => {
-        let linkText = link.innerText.toLowerCase().trim();
-        if (linkText === "logout" || linkText === "log out") {
-
-            link.addEventListener("click", function(e) {
-                e.preventDefault();
-                localStorage.removeItem("currentUser");
-                window.location.href = this.href;
-            });
-
-        }
-    });
-
 });
+

@@ -18,7 +18,7 @@
         <a href="{% url 'user_dashboard' %}">Dashboard</a>
         <a href="{% url 'search_books' %}" style="">Search Books</a>
         <a href="{% url 'borrowed_books' %}">My Borrowed Books</a>
-        <a href="{% url 'index' %}">Logout</a>
+        <a href="{% url 'logout' %}">Logout</a>
     </nav>
 
     <div id="address">
@@ -90,7 +90,6 @@
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
-        <script src="{% static 'js/dbase.js' %}"></script>
         <script src="{% static 'js/user.js' %}"></script>
     </body>
 </html>

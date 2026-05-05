@@ -43,6 +43,7 @@
 <section class="login-form-section">
 
 <form  class="login-form">
+    {% csrf_token %}
 
 <label>Username</label>
 <input type="text" name="username" required class="form-input"><br><br>
@@ -71,7 +72,6 @@ Sign Up
     <p>© 2026 Online Library | IS231 - Web Technology</p>
 </footer>
 
-    <script src="{% static 'js/dbase.js' %}"></script>
-    <script src="{% static 'js/auth.js' %}"></script>
+<script src="{% static 'js/auth.js' %}"></script>
 </body>
 </html>
