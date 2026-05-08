@@ -1,4 +1,3 @@
-// js/admin.js
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -201,5 +200,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+    logoutLinks.forEach(link => {
+        let linkText = link.innerText.toLowerCase().trim();
+        if (linkText === "logout" || linkText === "log out") {
+
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("currentUser");
+                window.location.href = this.href;
+            });
+
+        }
+    });
 
 });
