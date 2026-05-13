@@ -22,23 +22,43 @@
 
     <main class="details-container">
         <div class="book-details-card" id="bookDetailsCard">
-            <h2 id="bookTitle">Loading...</h2>
-            
+
+            <!-- replaced: <h2 id="bookTitle">Loading...</h2> -->
+            <h2 id="bookTitle">{{ book.title }}</h2>
+
             <div class="book-info">
-                <p><strong>Author:</strong> <span id="bookAuthor">-</span></p>
-                <p><strong>Category:</strong> <span id="bookCategory">-</span></p>
-                <p><strong>ISBN:</strong> <span id="bookISBN">-</span></p>
-                <p><strong>Status:</strong> <span id="bookStatus">-</span></p>
+                <!-- replaced: <span id="bookAuthor">-</span> etc. -->
+                <p><strong>Author:</strong> <span id="bookAuthor">{{ book.author }}</span></p>
+                <p><strong>Category:</strong> <span id="bookCategory">{{ book.category }}</span></p>
+                <p><strong>ISBN:</strong> <span id="bookISBN">{{ book.isbn|default:"N/A" }}</span></p>
+                <p><strong>Status:</strong>
+                    {% if book.status == 'Available' %}
+                        <span id="bookStatus" class="status-available">Available</span>
+                    {% else %}
+                        <span id="bookStatus" class="status-borrowed">Borrowed</span>
+                    {% endif %}
+                </p>
             </div>
-            
+
             <div class="book-description">
                 <h3>Description</h3>
-                <p id="bookDescription">Loading description...</p>
+                <!-- replaced: <p id="bookDescription">Loading description...</p> -->
+                <p id="bookDescription">{{ book.description|default:"No description available." }}</p>
             </div>
 
             <div id="alertMessage" class="alert-message"></div>
 
-            <button id="borrowBtn" class="borrow-btn">Borrow This Book</button>
+            <!-- replaced: plain <button id="borrowBtn"> with conditional logic -->
+            {% if book.status == 'Available' %}
+                <button id="borrowBtn" class="borrow-btn" onclick="borrowBook({{ book.id }})">
+                    Borrow This Book
+                </button>
+            {% else %}
+                <button id="borrowBtn" class="borrow-btn" disabled>
+                    Not Available
+                </button>
+            {% endif %}
+
         </div>
     </main>
 
@@ -46,7 +66,58 @@
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
-    
-    <script src="{% static 'js/user.js' %}"></script>
+    <!-- removed: user.js (was localStorage). Replaced with AJAX to Django API -->
+    <script>
+        function borrowBook(bookId) {
+            const btn = document.getElementById('borrowBtn');
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+
+            fetch('/api/borrow/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                body: JSON.stringify({ book_id: bookId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const alert = document.getElementById('alertMessage');
+                if (data.success) {
+                    alert.className = 'alert-message alert-success';
+                    alert.textContent = 'Book borrowed successfully! Return deadline is 14 days from today.';
+                    document.getElementById('bookStatus').textContent = 'Borrowed';
+                    document.getElementById('bookStatus').className = 'status-borrowed';
+                    btn.textContent = 'Already Borrowed';
+                } else {
+                    alert.className = 'alert-message alert-error';
+                    alert.textContent = data.message || 'Could not borrow this book.';
+                    btn.disabled = false;
+                    btn.textContent = 'Borrow This Book';
+                }
+            })
+            .catch(() => {
+                const alert = document.getElementById('alertMessage');
+                alert.className = 'alert-message alert-error';
+                alert.textContent = 'Something went wrong. Please try again.';
+                btn.disabled = false;
+                btn.textContent = 'Borrow This Book';
+            });
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                document.cookie.split(';').forEach(cookie => {
+                    cookie = cookie.trim();
+                    if (cookie.startsWith(name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+                    }
+                });
+            }
+            return cookieValue;
+        }
+    </script>
 </body>
 </html>
