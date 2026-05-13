@@ -23,7 +23,7 @@
     <main class="borrowed-container">
         <div class="borrowed-card">
             <h2>Books You Have Borrowed</h2>
-            
+
             <div class="table-responsive">
                 <table class="borrowed-table" id="borrowedTable">
                     <thead>
@@ -37,13 +37,36 @@
                         </tr>
                     </thead>
                     <tbody id="borrowedTableBody">
-                        <tr class="loading">
-                            <td colspan="6" style="text-align: center;">Loading your borrowed books...</td>
+
+                        <!-- replaced: <tr class="loading">Loading...</tr> -->
+                        {% for loan in loans %}
+                        <tr id="loan-row-{{ loan.id }}">
+                            <td>{{ loan.book.title }}</td>
+                            <td>{{ loan.book.author }}</td>
+                            <td>{{ loan.book.isbn }}</td>
+                            <td>{{ loan.borrow_date }}</td>
+                            <td style="color: #d9534f; font-weight: bold;">
+                                {{ loan.return_deadline }}
+                            </td>
+                            <td>
+                                <button class="return-btn"
+                                        onclick="returnBook({{ loan.id }}, this)">
+                                    Return Book
+                                </button>
+                            </td>
                         </tr>
+                        {% empty %}
+                        <tr id="emptyRow">
+                            <td colspan="6" style="text-align: center; padding: 30px; color: #666;">
+                                You haven't borrowed any books yet.
+                            </td>
+                        </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="borrowed-note">
                 <p><strong>Note:</strong> Please return books by the deadline to avoid late fees. Late fee: $0.50 per day.</p>
             </div>
@@ -54,7 +77,63 @@
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
-    
-    <script src="{% static 'js/user.js' %}"></script>
+    <!-- removed: user.js (was localStorage). Replaced with AJAX to Django API -->
+    <script>
+        function returnBook(loanId, btn) {
+            if (!confirm('Are you sure you want to return this book?')) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Returning...';
+
+            fetch('/api/return/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                body: JSON.stringify({ loan_id: loanId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    // Remove row instantly without page reload
+                    document.getElementById('loan-row-' + loanId).remove();
+
+                    // Show empty message if no loans left
+                    const tbody = document.getElementById('borrowedTableBody');
+                    if (tbody.children.length === 0) {
+                        tbody.innerHTML = `
+                            <tr id="emptyRow">
+                                <td colspan="6" style="text-align:center; padding:30px; color:#666;">
+                                    You haven't borrowed any books yet.
+                                </td>
+                            </tr>`;
+                    }
+                } else {
+                    alert('Could not return the book. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'Return Book';
+                }
+            })
+            .catch(() => {
+                alert('Something went wrong. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'Return Book';
+            });
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                document.cookie.split(';').forEach(cookie => {
+                    cookie = cookie.trim();
+                    if (cookie.startsWith(name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+                    }
+                });
+            }
+            return cookieValue;
+        }
+    </script>
 </body>
 </html>
