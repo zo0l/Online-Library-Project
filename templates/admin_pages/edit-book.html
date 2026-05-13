@@ -24,22 +24,22 @@
         <h2>Edit the fields</h2>
 
         <form method="post" class="admin-form">
-
+            {% csrf_token %}
             <div class="form-row">
                 <div class="form-group">
                     <label for="book_name">Title</label>
-                    <input type="text" id="book_name" name="book_name" required>
+                    <input type="text" id="book_name" name="book_name" value="{{ book.title }}" required>
                 </div>
                 <div class="form-group">
                     <label for="book_author">Author</label>
-                    <input type="text" id="book_author" name="book_author" required>
+                    <input type="text" id="book_author" name="book_author" value="{{ book.author }}" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="ISBN">ISBN</label>
-                    <input type="text" id="ISBN" name="ISBN" required>
+                    <input type="text" id="ISBN" name="ISBN" value="{{ book.isbn }}" required>
                 </div>
                 <div class="form-group">
                     <label for="book_category">Category</label>
@@ -56,7 +56,7 @@
 
             <div class="form-group-full">
                 <label for="book_description">Description</label>
-                <textarea id="book_description" name="book_description" rows="5" required></textarea>
+                <textarea id="book_description" name="book_description" rows="5" required>{{ book.description }}</textarea>
             </div>
 
             <button type="submit" class="submit-btn">Edit Book</button>

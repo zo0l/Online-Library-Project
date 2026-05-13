@@ -21,9 +21,11 @@
     </nav>
 
     <main class="borrowed-container">
+        <div hidden>{% csrf_token %}</div>
+
         <div class="borrowed-card">
             <h2>Books You Have Borrowed</h2>
-            
+
             <div class="table-responsive">
                 <table class="borrowed-table" id="borrowedTable">
                     <thead>
@@ -37,13 +39,26 @@
                         </tr>
                     </thead>
                     <tbody id="borrowedTableBody">
-                        <tr class="loading">
-                            <td colspan="6" style="text-align: center;">Loading your borrowed books...</td>
+                        {% for loan in loans %}
+                        <tr>
+                            <td>{{ loan.book.title }}</td>
+                            <td>{{ loan.book.author }}</td>
+                            <td>{{ loan.book.isbn }}</td>
+                            <td>{{ loan.borrow_date }}</td>
+                            <td>{{ loan.return_deadline }}</td>
+                            <td>
+                                <button class="return-btn" onclick="returnBook('{{ loan.id }}', this)">Return</button>
+                            </td>
                         </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" style="text-align: center;">You haven't borrowed any books yet.</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="borrowed-note">
                 <p><strong>Note:</strong> Please return books by the deadline to avoid late fees. Late fee: $0.50 per day.</p>
             </div>
@@ -54,7 +69,6 @@
         <p>© 2026 Online Library | IS231 - Web Technology</p>
     </footer>
 
-    
     <script src="{% static 'js/user.js' %}"></script>
 </body>
 </html>

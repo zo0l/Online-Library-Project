@@ -69,17 +69,26 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    {% for book in books %}
                     <tr>
-                        <td>1</td>
-                        <td>Clean Code</td>
-                        <td>Robert Martin</td>
-                        <td>Programming</td>
-                        <td>Available</td>
-                        <td><a href="{% url 'book_details' %}">
-                            <button>View Details</button>
-                            </a></td>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.category }}</td>
+                        <td style="color: {% if book.status == 'Available' %}green{% else %}red{% endif %}; font-weight: bold;">
+                            {{ book.status }}
+                        </td>
+                        <td>
+                            <a href="{% url 'book_details' %}?id={{ book.id }}">
+                                <button>View Details</button>
+                            </a>
+                        </td>
                     </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" style="text-align:center;">No books found matching your search.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
